@@ -1,92 +1,24 @@
 import { ContentStrings, Language } from './types';
 
 export const TEXT_CONTENT: Record<Language, ContentStrings> = {
-  EN: {
-    topBar: {
-      urgency: "Urgencies available 24/7",
-      phone: "0528 82 02 10",
-      location: "Talborjt, Agadir",
-    },
-    nav: {
-      home: "Home",
-      about: "About",
-      services: "Services",
-      patients: "Patients",
-      contact: "Contact",
-      results: "My Results",
-    },
-    hero: {
-      title: "Analysis & Biology in Agadir",
-      subtitle: "Precision, Trust, and Excellence since 2002. Your NM ISO 15189 accredited partner.",
-      ctaPrimary: "Patient Results",
-      ctaSecondary: "Home Sample",
-      badge: "Accredited NM ISO 15189:2023",
-    },
-    stats: {
-      experience: "Years of Experience",
-      patients: "Satisfied Patients",
-      available: "Emergency Service",
-    },
-    services: {
-      title: "Our Expertise",
-      subtitle: "Comprehensive medical diagnostics with state-of-the-art technology.",
-      biology: {
-        title: "Medical Biology",
-        desc: "Hematology, Microbiology, Immunology, and Biochemistry analyses performed with rigorous quality control.",
-      },
-      pediatrics: {
-        title: "Pediatric Care",
-        desc: "Specialized gentle sampling for children and infants in a reassuring environment.",
-      },
-      home: {
-        title: "Home Visits",
-        desc: "We come to you anywhere in Agadir. Professional sampling in the comfort of your home.",
-      },
-      fertility: {
-        title: "Fertility Center",
-        desc: "Specialized Fertility and Reproduction unit (FIV/ICSI). Advanced reproductive biology services.",
-      },
-    },
-    trust: {
-      isoTitle: "Internationally Recognized Quality",
-      isoDesc: "We are proud to be accredited NM ISO 15189:2023 by SEMAC, ensuring the highest level of competence and quality in medical laboratories.",
-      doctorTitle: "Dr. Samir Mahfoud",
-      doctorDesc: "Pharmacist Biologist, graduate of the Catholic University of Louvain (UCL), Belgium. Committed to diagnostic excellence since 2002.",
-    },
-    portal: {
-      title: "Patient Results Portal",
-      desc: "Securely access your medical reports online.",
-      loginPlaceholder: "Patient ID / Phone",
-      passPlaceholder: "Password / Access Code",
-      button: "Secure Login",
-      help: "Having trouble? Contact support.",
-    },
-    footer: {
-      address: "Imm Marhaba, Bd Cheikh Saadi, Talborjt, Agadir",
-      hours: "Mon-Fri: 7:30 - 19:00 | Sat: 7:30 - 13:30",
-      contact: "Contact Us",
-      rights: "© 2024 Laboratoire Mahfoud. All rights reserved.",
-    },
-  },
   FR: {
+    whatsappMessage: "Bonjour, je voudrais des informations sur les analyses...",
     topBar: {
-      urgency: "Urgences 24h/24 et 7j/7",
+      urgency: "Urgence 24/7 :",
       phone: "0528 82 02 10",
       location: "Talborjt, Agadir",
     },
     nav: {
       home: "Accueil",
-      about: "À propos",
       services: "Services",
-      patients: "Patients",
+      results: "Vos Résultats",
       contact: "Contact",
-      results: "Résultats",
     },
     hero: {
-      title: "Analyses & Biologie à Agadir",
-      subtitle: "Précision, Confiance et Excellence depuis 2002. Votre partenaire accrédité NM ISO 15189.",
-      ctaPrimary: "Vos Résultats",
-      ctaSecondary: "Prélèvement à Domicile",
+      title: "Analyses & Biologie Médicale à Agadir",
+      subtitle: "Votre santé mérite l'excellence. Accrédité NM ISO 15189.",
+      ctaPhone: "Appelez-nous",
+      ctaResults: "Vos Résultats",
       badge: "Accrédité NM ISO 15189:2023",
     },
     stats: {
@@ -95,33 +27,36 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       available: "Service d'urgence",
     },
     services: {
-      title: "Nos Services",
-      subtitle: "Diagnostics médicaux complets avec une technologie de pointe.",
-      biology: {
-        title: "Biologie Médicale",
-        desc: "Hématologie, Microbiologie, Immunologie et Biochimie réalisées avec un contrôle qualité rigoureux.",
-      },
-      pediatrics: {
-        title: "Pédiatrie Spécialisée",
-        desc: "Prélèvement doux spécialisé pour enfants et nourrissons dans un environnement rassurant.",
-      },
-      home: {
-        title: "Prélèvement à Domicile",
-        desc: "Nous venons à vous partout à Agadir. Prélèvement professionnel dans le confort de votre foyer.",
-      },
-      fertility: {
-        title: "Centre de Fertilité",
-        desc: "Unité spécialisée en Fertilité et Reproduction (FIV/ICSI). Biologie de la reproduction avancée.",
-      },
+      title: "Analyses Médicales",
+      subtitle: "Un large éventail d'analyses pour votre suivi santé.",
+      items: {
+        blood: { title: "Analyses de Sang", desc: "NFS, Bilan complet, Hématologie." },
+        diabetes: { title: "Diabète & Glycémie", desc: "HbA1c, Suivi glycémique précis." },
+        hormones: { title: "Hormonologie", desc: "Bilan Thyroïde, Fertilité, TSH." },
+        pregnancy: { title: "Suivi de Grossesse", desc: "Beta HCG, Toxoplasmose, Suivi mensuel." },
+        covid: { title: "Covid-19 & PCR", desc: "Résultats rapides et certifiés pour voyage." },
+      }
     },
     trust: {
-      isoTitle: "Qualité Reconnue Internationalement",
-      isoDesc: "Nous sommes fiers d'être accrédités NM ISO 15189:2023 par SEMAC, garantissant le plus haut niveau de compétence et de qualité.",
-      doctorTitle: "Dr. Samir Mahfoud",
-      doctorDesc: "Pharmacien Biologiste, diplômé de l'Université Catholique de Louvain (UCL), Belgique. Engagé pour l'excellence depuis 2002.",
+      title: "Pourquoi nous choisir ?",
+      subtitle: "L'excellence médicale au service de votre santé.",
+      items: {
+        experience: { title: "Depuis 2002", desc: "Plus de 20 ans d'expertise à Agadir." },
+        iso: { title: "Certifié ISO 15189", desc: "Norme internationale de compétence." },
+        confidentiality: { title: "Confidentialité", desc: "Secrets médicaux 100% garantis." },
+        precision: { title: "Précision", desc: "Contrôle qualité interne et externe rigoureux." },
+      }
+    },
+    testimonials: {
+      title: "Ce que disent nos patients",
+      reviews: [
+        { name: "Ahmed B.", text: "Service très professionnel et rapide. J'ai reçu mes résultats par email le jour même.", stars: 5 },
+        { name: "Fatima Z.", text: "Personnel accueillant et rassurant, surtout pour les prélèvements sanguins des enfants.", stars: 5 },
+        { name: "Karim M.", text: "Laboratoire propre et moderne. Je recommande vivement pour la fiabilité des résultats.", stars: 5 },
+      ]
     },
     portal: {
-      title: "Portail Résultats",
+      title: "Espace Résultats",
       desc: "Accédez à vos rapports médicaux en toute sécurité.",
       loginPlaceholder: "Identifiant / Tél",
       passPlaceholder: "Mot de passe",
@@ -136,24 +71,23 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
     },
   },
   AR: {
+    whatsappMessage: "مرحبًا، أود الاستفسار عن التحاليل الطبية...",
     topBar: {
-      urgency: "خدمة الطوارئ 24/7",
+      urgency: "طوارئ 24/7 :",
       phone: "0528 82 02 10",
       location: "تالبرجت، أكادير",
     },
     nav: {
       home: "الرئيسية",
-      about: "من نحن",
       services: "خدماتنا",
-      patients: "المرضى",
-      contact: "اتصل بنا",
       results: "نتائجي",
+      contact: "اتصل بنا",
     },
     hero: {
-      title: "التحاليل والبيولوجيا في أكادير",
-      subtitle: "الدقة، الثقة والتميز منذ عام 2002. شريككم المعتمد NM ISO 15189.",
-      ctaPrimary: "نتائج المرضى",
-      ctaSecondary: "أخذ العينات بالمنزل",
+      title: "تحاليل وبيولوجيا طبية في أكادير",
+      subtitle: "صحتكم تستحق التميز. معتمد NM ISO 15189.",
+      ctaPhone: "اتصل بنا",
+      ctaResults: "نتائجي",
       badge: "معتمد NM ISO 15189:2023",
     },
     stats: {
@@ -162,44 +96,116 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       available: "خدمة الطوارئ",
     },
     services: {
-      title: "خدماتنا",
-      subtitle: "تشخيصات طبية شاملة بأحدث التقنيات.",
-      biology: {
-        title: "البيولوجيا الطبية",
-        desc: "تحاليل أمراض الدم، الأحياء الدقيقة، المناعة والكيمياء الحيوية مع مراقبة جودة صارمة.",
-      },
-      pediatrics: {
-        title: "رعاية الأطفال",
-        desc: "أخذ عينات لطيف ومخصص للأطفال والرضع في بيئة مطمئنة.",
-      },
-      home: {
-        title: "زيارات منزلية",
-        desc: "نصل إليكم في أي مكان في أكادير. أخذ عينات احترافي في راحة منزلكم.",
-      },
-      fertility: {
-        title: "مركز الخصوبة",
-        desc: "وحدة متخصصة في الخصوبة والإنجاب (FIV/ICSI). خدمات بيولوجيا الإنجاب المتقدمة.",
-      },
+      title: "تحاليل طبية شاملة",
+      subtitle: "مجموعة واسعة من التحاليل لمتابعة صحتكم.",
+      items: {
+        blood: { title: "تحاليل الدم", desc: "NFS، فحص شامل، أمراض الدم." },
+        diabetes: { title: "السكري والسكر", desc: "HbA1c، تتبع دقيق لنسبة السكر." },
+        hormones: { title: "الهرمونات", desc: "الغدة الدرقية، الخصوبة، TSH." },
+        pregnancy: { title: "تتبع الحمل", desc: "Beta HCG، داء المقوسات، تتبع شهري." },
+        covid: { title: "كوفيد-19 و PCR", desc: "نتائج سريعة ومعتمدة للسفر." },
+      }
     },
     trust: {
-      isoTitle: "جودة معترف بها دولياً",
-      isoDesc: "نحن فخورون بحصولنا على اعتماد NM ISO 15189:2023 من SEMAC، مما يضمن أعلى مستويات الكفاءة والجودة في المختبرات الطبية.",
-      doctorTitle: "د. سمير محفوظ",
-      doctorDesc: "صيدلي بيولوجي، خريج الجامعة الكاثوليكية في لوفان (UCL)، بلجيكا. ملتزمون بالتميز في التشخيص منذ عام 2002.",
+      title: "لماذا تختارنا؟",
+      subtitle: "التميز الطبي في خدمة صحتكم.",
+      items: {
+        experience: { title: "منذ 2002", desc: "أكثر من 20 عامًا من الخبرة في أكادير." },
+        iso: { title: "معتمد ISO 15189", desc: "المعيار الدولي للكفاءة والجودة." },
+        confidentiality: { title: "السرية التامة", desc: "ضمان سرية المعلومات الطبية 100%." },
+        precision: { title: "الدقة", desc: "مراقبة جودة داخلية وخارجية صارمة." },
+      }
+    },
+    testimonials: {
+      title: "آراء مرضانا",
+      reviews: [
+        { name: "أحمد ب.", text: "خدمة احترافية وسريعة للغاية. تلقيت نتائجي عبر البريد الإلكتروني في نفس اليوم.", stars: 5 },
+        { name: "فاطمة ز.", text: "طاقم عمل مرحب ومطمئن، خاصة لسحب الدم للأطفال.", stars: 5 },
+        { name: "كريم م.", text: "مختبر نظيف وحديث. أوصي به بشدة لدقة النتائج.", stars: 5 },
+      ]
     },
     portal: {
-      title: "بوابة نتائج المرضى",
-      desc: "ادخل إلى تقاريرك الطبية بأمان عبر الإنترنت.",
+      title: "فضاء النتائج",
+      desc: "ادخل إلى تقاريرك الطبية بأمان.",
       loginPlaceholder: "رقم الملف / الهاتف",
-      passPlaceholder: "كلمة المرور / رمز الدخول",
+      passPlaceholder: "كلمة المرور",
       button: "دخول آمن",
-      help: "تواجه مشكلة؟ اتصل بالدعم.",
+      help: "تواجه مشكلة؟ اتصل بنا.",
     },
     footer: {
       address: "عمارة مرحبا، شارع الشيخ سعدي، تالبرجت، أكادير",
       hours: "الاثنين-الجمعة: 7:30 - 19:00 | السبت: 7:30 - 13:30",
       contact: "اتصل بنا",
       rights: "© 2024 مختبر محفوظ. جميع الحقوق محفوظة.",
+    },
+  },
+  EN: {
+    whatsappMessage: "Hello, I would like to inquire about medical tests...",
+    topBar: {
+      urgency: "Emergency 24/7 :",
+      phone: "0528 82 02 10",
+      location: "Talborjt, Agadir",
+    },
+    nav: {
+      home: "Home",
+      services: "Services",
+      results: "My Results",
+      contact: "Contact",
+    },
+    hero: {
+      title: "Medical Analysis & Biology in Agadir",
+      subtitle: "Your health deserves excellence. NM ISO 15189 Accredited.",
+      ctaPhone: "Call Us",
+      ctaResults: "My Results",
+      badge: "Accredited NM ISO 15189:2023",
+    },
+    stats: {
+      experience: "Years of Experience",
+      patients: "Satisfied Patients",
+      available: "Emergency Service",
+    },
+    services: {
+      title: "Medical Analysis",
+      subtitle: "A wide range of tests for your health monitoring.",
+      items: {
+        blood: { title: "Blood Analysis", desc: "CBC, Full Checkup, Hematology." },
+        diabetes: { title: "Diabetes", desc: "HbA1c, Precise glucose monitoring." },
+        hormones: { title: "Hormonology", desc: "Thyroid Check, Fertility, TSH." },
+        pregnancy: { title: "Pregnancy", desc: "Beta HCG, Toxoplasmosis, Monitoring." },
+        covid: { title: "Covid-19 & PCR", desc: "Fast results certified for travel." },
+      }
+    },
+    trust: {
+      title: "Why Choose Us?",
+      subtitle: "Medical excellence at your service.",
+      items: {
+        experience: { title: "Since 2002", desc: "Over 20 years of expertise in Agadir." },
+        iso: { title: "ISO 15189 Certified", desc: "International standard of competence." },
+        confidentiality: { title: "Confidentiality", desc: "100% guaranteed medical secrecy." },
+        precision: { title: "Precision", desc: "Rigorous internal and external quality control." },
+      }
+    },
+    testimonials: {
+      title: "What Our Patients Say",
+      reviews: [
+        { name: "Ahmed B.", text: "Very professional and fast service. I received my results by email the same day.", stars: 5 },
+        { name: "Fatima Z.", text: "Welcoming and reassuring staff, especially for children's blood tests.", stars: 5 },
+        { name: "Karim M.", text: "Clean and modern laboratory. I highly recommend for the reliability of results.", stars: 5 },
+      ]
+    },
+    portal: {
+      title: "Patient Portal",
+      desc: "Securely access your medical reports online.",
+      loginPlaceholder: "Patient ID / Phone",
+      passPlaceholder: "Password",
+      button: "Secure Login",
+      help: "Having trouble? Contact us.",
+    },
+    footer: {
+      address: "Imm Marhaba, Bd Cheikh Saadi, Talborjt, Agadir",
+      hours: "Mon-Fri: 7:30 - 19:00 | Sat: 7:30 - 13:30",
+      contact: "Contact Us",
+      rights: "© 2024 Laboratoire Mahfoud. All rights reserved.",
     },
   },
 };

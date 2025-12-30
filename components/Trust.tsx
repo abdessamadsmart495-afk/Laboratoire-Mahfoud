@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, ShieldCheck, GraduationCap } from 'lucide-react';
+import { Award, ShieldCheck, GraduationCap, Clock, Lock } from 'lucide-react';
 import { ContentStrings } from '../types';
 import { Reveal } from './Reveal';
 
@@ -8,43 +8,64 @@ interface TrustProps {
 }
 
 const Trust: React.FC<TrustProps> = ({ text }) => {
+  const items = [
+    {
+        icon: <Clock size={32} />,
+        title: text.trust.items.experience.title,
+        desc: text.trust.items.experience.desc,
+        bg: 'bg-blue-50',
+        text: 'text-blue-600'
+    },
+    {
+        icon: <Award size={32} />,
+        title: text.trust.items.iso.title,
+        desc: text.trust.items.iso.desc,
+        bg: 'bg-green-50',
+        text: 'text-green-600'
+    },
+    {
+        icon: <Lock size={32} />,
+        title: text.trust.items.confidentiality.title,
+        desc: text.trust.items.confidentiality.desc,
+        bg: 'bg-purple-50',
+        text: 'text-purple-600'
+    },
+    {
+        icon: <ShieldCheck size={32} />,
+        title: text.trust.items.precision.title,
+        desc: text.trust.items.precision.desc,
+        bg: 'bg-orange-50',
+        text: 'text-orange-600'
+    }
+  ];
+
   return (
-    <div className="bg-white py-24 border-b border-gray-100 overflow-hidden">
+    <div className="bg-gray-50/50 py-24 border-y border-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* ISO Section */}
-          <Reveal delay={0}>
-            <div className="h-full bg-gradient-to-br from-green-50 to-white p-10 rounded-[2.5rem] border border-gray-100 hover:border-medical-primary transition-colors duration-500 flex flex-col md:flex-row gap-8 items-start hover:shadow-lg">
-              <div className="p-5 bg-medical-50 text-medical-primary rounded-2xl flex-shrink-0 transform transition-transform hover:scale-110 hover:rotate-6">
-                 <ShieldCheck size={48} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-medical-secondary mb-4">{text.trust.isoTitle}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{text.trust.isoDesc}</p>
-                <div className="inline-flex items-center gap-2 bg-white text-medical-primary px-5 py-2 rounded-full text-sm font-bold border border-medical-100 shadow-sm">
-                  <Award size={16} /> NM ISO 15189:2023
-                </div>
-              </div>
-            </div>
-          </Reveal>
+        <Reveal width="100%">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-extrabold text-medical-secondary sm:text-4xl">
+              {text.trust.title}
+            </h2>
+            <p className="mt-4 text-xl text-gray-500">
+              {text.trust.subtitle}
+            </p>
+          </div>
+        </Reveal>
 
-          {/* Doctor Section */}
-          <Reveal delay={200}>
-            <div className="h-full bg-gradient-to-br from-blue-50 to-white p-10 rounded-[2.5rem] border border-blue-100 hover:border-medical-secondary transition-colors duration-500 flex flex-col md:flex-row gap-8 items-start hover:shadow-lg">
-               <div className="p-5 bg-blue-100 text-medical-secondary rounded-2xl flex-shrink-0 transform transition-transform hover:scale-110 hover:rotate-[-6deg]">
-                 <GraduationCap size={48} />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-medical-secondary mb-4">{text.trust.doctorTitle}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{text.trust.doctorDesc}</p>
-                <div className="flex flex-wrap gap-3">
-                   <span className="bg-white text-medical-secondary px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm border border-blue-100">UCL Belgium</span>
-                   <span className="bg-white text-medical-secondary px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm border border-blue-100">Since 2002</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {items.map((item, i) => (
+             <Reveal key={i} delay={i * 100}>
+                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 h-full flex flex-col items-center text-center">
+                   <div className={`p-4 rounded-2xl ${item.bg} ${item.text} mb-6`}>
+                      {item.icon}
+                   </div>
+                   <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                   <p className="text-gray-600">{item.desc}</p>
                 </div>
-              </div>
-            </div>
-          </Reveal>
+             </Reveal>
+          ))}
         </div>
 
       </div>

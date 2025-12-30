@@ -1,8 +1,7 @@
 import React from 'react';
-import { ArrowRight, Activity, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Phone, FileText } from 'lucide-react';
 import { ContentStrings, Language } from '../types';
 import { Reveal } from './Reveal';
-import { Counter } from './Counter';
 
 interface HeroProps {
   text: ContentStrings;
@@ -44,68 +43,43 @@ const Hero: React.FC<HeroProps> = ({ text, lang }) => {
               </p>
             </Reveal>
             
+            {/* CTA Section - Simplified per requirements */}
             <Reveal delay={150}>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                {/* Primary Button: Solid Green */}
-                <a href="#portal" className="group relative inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white bg-medical-primary shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:-translate-y-1">
-                  <span className="relative flex items-center gap-2">
-                    {text.hero.ctaPrimary}
-                    <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
-                  </span>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+                
+                {/* 1. Phone Call (Green) */}
+                <a 
+                  href="tel:0528820210"
+                  className="group relative flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white bg-medical-secondary shadow-lg hover:bg-blue-900 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  {text.hero.ctaPhone}
                 </a>
                 
-                {/* Secondary Button: White with Green Border */}
-                <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 border-2 border-medical-primary text-base font-bold rounded-xl text-medical-primary bg-white hover:bg-medical-50 transition-all duration-300 hover:shadow-md hover:-translate-y-1">
-                  {text.hero.ctaSecondary}
+                {/* 2. Results (White/Border) */}
+                <a 
+                  href="#portal" 
+                  className="flex items-center justify-center px-8 py-4 border-2 border-gray-200 text-base font-bold rounded-xl text-gray-700 bg-white hover:bg-gray-50 hover:border-medical-primary hover:text-medical-primary transition-all duration-300 hover:shadow-md hover:-translate-y-1 w-full sm:w-auto"
+                >
+                  <FileText className="w-5 h-5 mr-2" />
+                  {text.hero.ctaResults}
                 </a>
               </div>
             </Reveal>
 
-            <Reveal delay={200}>
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 mt-8">
-                <div>
-                  <p className="text-3xl font-bold text-medical-primary flex items-baseline">
-                    <Counter end={22} suffix="+" />
-                  </p>
-                  <p className="text-sm text-gray-500 font-medium mt-1">{text.stats.experience}</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-medical-primary">24/7</p>
-                  <p className="text-sm text-gray-500 font-medium mt-1">{text.stats.available}</p>
-                </div>
-                 <div>
-                  <p className="text-3xl font-bold text-medical-primary">ISO</p>
-                  <p className="text-sm text-gray-500 font-medium mt-1">15189</p>
-                </div>
-              </div>
-            </Reveal>
           </div>
 
-          <Reveal delay={300} className="relative lg:h-[600px] flex items-center justify-center perspective-1000">
+          <Reveal delay={300} className="hidden lg:flex relative lg:h-[600px] items-center justify-center perspective-1000">
              {/* 3D-ish Card effect */}
              <div className="relative w-full aspect-square max-w-lg group">
                 <div className="absolute inset-0 bg-medical-primary rounded-full opacity-10 blur-3xl animate-pulse"></div>
                 
-                {/* Image Container with hover tilt */}
                 <div className="relative bg-white p-3 rounded-[2rem] shadow-2xl border-4 border-white/50 overflow-hidden transform transition-all duration-700 ease-out hover:rotate-1 hover:scale-[1.01]">
                   <img 
                     src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                     alt="Laboratoire Mahfoud Equipment" 
                     className="rounded-[1.5rem] object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                   />
-                  
-                  {/* Floating Doctor Card */}
-                  <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-gray-100 transform transition-all duration-500 hover:-translate-y-2">
-                    <div className="flex items-center gap-4">
-                       <div className="p-3 bg-green-100 rounded-full text-medical-primary shadow-inner">
-                         <Activity size={24} />
-                       </div>
-                       <div>
-                         <p className="font-bold text-medical-secondary text-lg">Dr. Samir Mahfoud</p>
-                         <p className="text-xs font-semibold text-gray-500 tracking-wide uppercase">UCL Belgium Graduate</p>
-                       </div>
-                    </div>
-                  </div>
                 </div>
              </div>
           </Reveal>

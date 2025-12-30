@@ -1,6 +1,7 @@
 export type Language = 'EN' | 'FR' | 'AR';
 
 export interface ContentStrings {
+  whatsappMessage: string;
   topBar: {
     urgency: string;
     phone: string;
@@ -8,17 +9,15 @@ export interface ContentStrings {
   };
   nav: {
     home: string;
-    about: string;
     services: string;
-    patients: string;
-    contact: string;
     results: string;
+    contact: string;
   };
   hero: {
     title: string;
     subtitle: string;
-    ctaPrimary: string;
-    ctaSecondary: string;
+    ctaPhone: string;
+    ctaResults: string;
     badge: string;
   };
   stats: {
@@ -29,28 +28,31 @@ export interface ContentStrings {
   services: {
     title: string;
     subtitle: string;
-    biology: {
-      title: string;
-      desc: string;
-    };
-    pediatrics: {
-      title: string;
-      desc: string;
-    };
-    home: {
-      title: string;
-      desc: string;
-    };
-    fertility: {
-      title: string;
-      desc: string;
+    items: {
+      blood: { title: string; desc: string; };
+      diabetes: { title: string; desc: string; };
+      hormones: { title: string; desc: string; };
+      pregnancy: { title: string; desc: string; };
+      covid: { title: string; desc: string; };
     };
   };
   trust: {
-    isoTitle: string;
-    isoDesc: string;
-    doctorTitle: string;
-    doctorDesc: string;
+    title: string;
+    subtitle: string;
+    items: {
+      experience: { title: string; desc: string; };
+      iso: { title: string; desc: string; };
+      confidentiality: { title: string; desc: string; };
+      precision: { title: string; desc: string; };
+    };
+  };
+  testimonials: {
+    title: string;
+    reviews: Array<{
+      text: string;
+      name: string;
+      stars: number;
+    }>;
   };
   portal: {
     title: string;

@@ -11,7 +11,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Separate states for desktop and mobile language dropdowns to avoid collision
+  // Separate states for desktop and mobile language dropdowns
   const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false);
   const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
 
@@ -49,6 +49,12 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
 
   const currentLang = languages.find(l => l.code === lang) || languages[0];
 
+  const navLinks = [
+    { key: 'home', label: text.nav.home },
+    { key: 'services', label: text.nav.services },
+    { key: 'contact', label: text.nav.contact },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,9 +62,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
           
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
-            {/* USER: Please right-click the logo on the old site, copy image address, and paste it here if this link breaks */}
             <img 
-              src="https://www.laboratoiremahfoud.com/img/logo.png" 
+              src="https://www.laboratoiremahfoud.com/assets/images/logo.png" 
               alt="Laboratoire Mahfoud Logo" 
               className="h-10 w-auto object-contain md:h-16 max-w-[180px] md:max-w-xs transition-all duration-300"
               onError={(e) => {
@@ -78,13 +83,13 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
-            {['home', 'services', 'about'].map((item) => (
+            {navLinks.map((item) => (
                <a 
-                 key={item}
-                 href={`#${item}`} 
+                 key={item.key}
+                 href={`#${item.key}`} 
                  className="text-gray-600 hover:text-medical-primary font-medium transition-colors hover:-translate-y-0.5 inline-block"
                >
-                 {text.nav[item as keyof typeof text.nav]}
+                 {item.label}
                </a>
             ))}
             
@@ -170,14 +175,14 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
       {/* Mobile Menu Content */}
       <div className={`md:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-4 pt-2 pb-6 space-y-2">
-          {['home', 'services', 'about'].map((item) => (
+          {navLinks.map((item) => (
             <a 
-              key={item}
-              href={`#${item}`} 
+              key={item.key}
+              href={`#${item.key}`} 
               onClick={() => setIsMobileMenuOpen(false)} 
               className="block px-3 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors"
             >
-              {text.nav[item as keyof typeof text.nav]}
+              {item.label}
             </a>
           ))}
           <a href="#portal" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 rounded-xl text-base font-medium text-medical-primary bg-medical-50 border border-medical-100">

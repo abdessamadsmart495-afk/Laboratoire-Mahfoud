@@ -1,5 +1,5 @@
 import React from 'react';
-import { Microscope, Baby, Home, Dna, ArrowRight } from 'lucide-react';
+import { Droplets, Activity, TestTube2, Baby, Microscope, ArrowRight } from 'lucide-react';
 import { ContentStrings } from '../types';
 import { Reveal } from './Reveal';
 
@@ -10,48 +10,42 @@ interface ServicesProps {
 const Services: React.FC<ServicesProps> = ({ text }) => {
   const services = [
     {
-      id: 'bio',
-      icon: <Microscope size={32} />,
-      title: text.services.biology.title,
-      desc: text.services.biology.desc,
-      color: 'text-medical-primary',
-      bg: 'bg-green-50',
-      border: 'hover:border-medical-primary',
+      id: 'blood',
+      icon: <Droplets size={32} />,
+      title: text.services.items.blood.title,
+      desc: text.services.items.blood.desc,
     },
     {
-      id: 'ped',
+      id: 'diabetes',
+      icon: <Activity size={32} />,
+      title: text.services.items.diabetes.title,
+      desc: text.services.items.diabetes.desc,
+    },
+    {
+      id: 'hormones',
+      icon: <TestTube2 size={32} />,
+      title: text.services.items.hormones.title,
+      desc: text.services.items.hormones.desc,
+    },
+    {
+      id: 'pregnancy',
       icon: <Baby size={32} />,
-      title: text.services.pediatrics.title,
-      desc: text.services.pediatrics.desc,
-      color: 'text-medical-primary',
-      bg: 'bg-green-50',
-      border: 'hover:border-medical-primary',
+      title: text.services.items.pregnancy.title,
+      desc: text.services.items.pregnancy.desc,
     },
     {
-      id: 'home',
-      icon: <Home size={32} />,
-      title: text.services.home.title,
-      desc: text.services.home.desc,
-      color: 'text-medical-primary',
-      bg: 'bg-green-50',
-      border: 'hover:border-medical-primary',
-    },
-    {
-      id: 'fertility',
-      icon: <Dna size={32} />, // Using DNA icon for FIV/ICSI
-      title: text.services.fertility.title,
-      desc: text.services.fertility.desc,
-      color: 'text-medical-primary',
-      bg: 'bg-green-50',
-      border: 'hover:border-medical-primary',
-    },
+      id: 'covid',
+      icon: <Microscope size={32} />,
+      title: text.services.items.covid.title,
+      desc: text.services.items.covid.desc,
+    }
   ];
 
   return (
     <div id="services" className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal width="100%">
-          <div className="text-center max-w-3xl mx-auto mb-20">
+          <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-bold text-medical-primary tracking-[0.2em] uppercase mb-3">
               {text.nav.services}
             </h2>
@@ -64,25 +58,25 @@ const Services: React.FC<ServicesProps> = ({ text }) => {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => (
-            <Reveal key={service.id} delay={index * 75}>
-              <div className={`group h-full relative p-8 bg-white border border-gray-100 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer ${service.border}`}>
+            <Reveal key={service.id} delay={index * 50}>
+              <div className="group h-full flex flex-col p-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer hover:border-medical-primary/30">
                 
-                <div className={`inline-flex items-center justify-center p-4 rounded-2xl ${service.bg} ${service.color} mb-8 transform transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-medical-50 text-medical-primary mb-6 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                   {service.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-medical-secondary mb-4 group-hover:text-medical-primary transition-colors">
+                <h3 className="text-lg font-bold text-medical-secondary mb-3 group-hover:text-medical-primary transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-8">
+                <p className="text-sm text-gray-600 leading-relaxed mb-auto">
                   {service.desc}
                 </p>
 
-                <div className="absolute bottom-8 right-8 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-medical-primary">
-                   <ArrowRight size={20} />
+                <div className="mt-4 flex items-center text-medical-primary opacity-0 transform translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                   <ArrowRight size={16} />
                 </div>
               </div>
             </Reveal>

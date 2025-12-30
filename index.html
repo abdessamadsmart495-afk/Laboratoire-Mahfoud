@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="https://picsum.photos/32/32" />
@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#28a745" />
     <meta
       name="description"
-      content="Laboratoire Mahfoud - Agadir. Accredited NM ISO 15189:2023. Medical Analysis, Home Sampling, Pediatrics."
+      content="Laboratoire Mahfoud - Agadir. Accrédité NM ISO 15189:2023. Analyses Médicales, Prélèvement à domicile, Pédiatrie."
     />
     <title>Laboratoire Mahfoud | Agadir</title>
     <!-- Fonts: Inter for Latin, Cairo for Arabic -->
@@ -46,10 +46,15 @@
               'heartbeat': 'heartbeat 4s infinite ease-in-out',
               'wiggle': 'wiggle 6s infinite ease-in-out',
               'blob': 'blob 25s infinite',
+              'fade-in': 'fadeIn 0.2s ease-out',
             },
             keyframes: {
               fadeInUp: {
                 '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(-5px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
               heartbeat: {
@@ -80,6 +85,11 @@
       html {
         scroll-behavior: smooth;
       }
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     </style>
   <script type="importmap">
 {
@@ -92,7 +102,7 @@
 }
 </script>
 </head>
-  <body>
+  <body class="overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
   </body>

@@ -9,22 +9,37 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
-  const langMenuRef = useRef<HTMLDivElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Separate states for desktop and mobile language dropdowns to avoid collision
+  const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false);
+  const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
 
-  // Close dropdown when clicking outside
+  // Separate refs to ensure click-outside logic works for both independently
+  const desktopLangRef = useRef<HTMLDivElement>(null);
+  const mobileLangRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
-        setIsLangMenuOpen(false);
+      const target = event.target as Node;
+      
+      // Handle Desktop Logic
+      if (desktopLangRef.current && !desktopLangRef.current.contains(target)) {
+        setIsDesktopLangOpen(false);
+      }
+      
+      // Handle Mobile Logic
+      if (mobileLangRef.current && !mobileLangRef.current.contains(target)) {
+        setIsMobileLangOpen(false);
       }
     }
+    
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [langMenuRef]);
+  }, []);
 
   const languages = [
     { code: 'FR', label: 'Français', flag: '🇫🇷' },
@@ -77,25 +92,25 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
               {text.nav.results}
             </a>
             
-            {/* Desktop Language Switcher */}
-            <div className="relative" ref={langMenuRef}>
+            {/* Desktop Language Switcher (ID: lang-switch-desktop) */}
+            <div className="relative" ref={desktopLangRef} id="lang-switch-desktop">
               <button 
-                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                onClick={() => setIsDesktopLangOpen(!isDesktopLangOpen)}
                 className="flex items-center gap-2 text-gray-700 hover:text-medical-primary font-semibold border border-gray-200 px-3 py-2 rounded-xl transition-all hover:shadow-sm"
               >
                 <Globe size={18} />
                 <span>{currentLang.code}</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${isLangMenuOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`transition-transform duration-200 ${isDesktopLangOpen ? 'rotate-180' : ''}`} />
               </button>
               
-              {isLangMenuOpen && (
-                <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 animate-fade-in z-50">
+              {isDesktopLangOpen && (
+                <div className="absolute top-full right-0 rtl:right-auto rtl:left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 py-2 animate-fade-in z-[60]">
                   {languages.map((l) => (
                     <button
                       key={l.code}
                       onClick={() => {
                         setLang(l.code as Language);
-                        setIsLangMenuOpen(false);
+                        setIsDesktopLangOpen(false);
                       }}
                       className={`w-full flex items-center justify-between px-4 py-3 text-sm transition-colors hover:bg-gray-50 ${lang === l.code ? 'text-medical-primary font-bold bg-medical-50/50' : 'text-gray-700'}`}
                     >
@@ -114,26 +129,26 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
           {/* Mobile Actions */}
           <div className="md:hidden flex items-center gap-3">
              
-             {/* Mobile Language Dropdown (Simplified) */}
-             <div className="relative" ref={langMenuRef}>
+             {/* Mobile Language Dropdown (ID: lang-switch-mobile) */}
+             <div className="relative" ref={mobileLangRef} id="lang-switch-mobile">
                <button 
-                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                 onClick={() => setIsMobileLangOpen(!isMobileLangOpen)}
                  className="flex items-center gap-1.5 p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                  aria-label="Select Language"
                >
                  <Globe size={20} />
                  <span className="text-sm font-bold">{currentLang.code}</span>
-                 <ChevronDown size={14} className={`transition-transform duration-200 ${isLangMenuOpen ? 'rotate-180' : ''}`} />
+                 <ChevronDown size={14} className={`transition-transform duration-200 ${isMobileLangOpen ? 'rotate-180' : ''}`} />
                </button>
 
-                {isLangMenuOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 py-2 animate-fade-in z-50">
+                {isMobileLangOpen && (
+                  <div className="absolute top-full right-0 mt-2 w-44 bg-white rounded-xl shadow-xl border border-gray-100 py-2 animate-fade-in z-[60]">
                     {languages.map((l) => (
                       <button
                         key={l.code}
                         onClick={() => {
                           setLang(l.code as Language);
-                          setIsLangMenuOpen(false);
+                          setIsMobileLangOpen(false);
                         }}
                         className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition-colors ${lang === l.code ? 'bg-medical-50 text-medical-primary font-bold' : 'text-gray-700 hover:bg-gray-50'}`}
                       >
@@ -145,27 +160,27 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
                 )}
              </div>
 
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Menu">
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Menu">
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu Content */}
-      <div className={`md:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden bg-white border-t border-gray-100 overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-4 pt-2 pb-6 space-y-2">
           {['home', 'services', 'about'].map((item) => (
             <a 
               key={item}
               href={`#${item}`} 
-              onClick={() => setIsOpen(false)} 
+              onClick={() => setIsMobileMenuOpen(false)} 
               className="block px-3 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors"
             >
               {text.nav[item as keyof typeof text.nav]}
             </a>
           ))}
-          <a href="#portal" onClick={() => setIsOpen(false)} className="block px-3 py-3 rounded-xl text-base font-medium text-medical-primary bg-medical-50 border border-medical-100">
+          <a href="#portal" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 rounded-xl text-base font-medium text-medical-primary bg-medical-50 border border-medical-100">
             {text.nav.results}
           </a>
         </div>

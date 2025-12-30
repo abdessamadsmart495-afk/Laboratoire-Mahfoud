@@ -66,6 +66,7 @@ function App() {
           <Hero text={text} lang={lang} />
           <Services text={text} />
           <Trust text={text} />
+          {/* Testimonials removed as per requirement */}
           <ResultsPortal text={text} lang={lang} />
         </main>
         <Footer text={text} lang={lang} />

@@ -58,42 +58,41 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-24">
+        <div className="flex justify-between items-center h-16 md:h-20">
           
-          {/* Logo Section */}
+          {/* Logo Section - Cleaned up: Image + Badge Only */}
           <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
             <img 
               src="https://www.laboratoiremahfoud.com/assets/images/logo.png" 
               alt="Laboratoire Mahfoud Logo" 
-              className="h-10 w-auto object-contain md:h-16 max-w-[180px] md:max-w-xs transition-all duration-300"
+              className="h-10 w-auto object-contain md:h-12 max-w-[150px] transition-all duration-300"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.parentElement?.classList.add('fallback-logo');
               }}
             />
-            <div className="hidden lg:flex flex-col">
-              <span className="text-xl font-bold text-medical-secondary leading-tight">
-                Laboratoire Mahfoud
-              </span>
-              <span className="text-xs text-medical-primary font-medium flex items-center gap-1">
-                <Award size={12} /> NM ISO 15189:2023
+            {/* ISO Badge - Compact */}
+            <div className="flex flex-col justify-center border-l border-gray-200 pl-3 ml-1 h-8">
+              <span className="text-[10px] md:text-xs text-medical-primary font-bold flex items-center gap-1 uppercase tracking-wider whitespace-nowrap">
+                <Award size={14} className="text-medical-500" />
+                NM ISO 15189
               </span>
             </div>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 rtl:space-x-reverse">
             {navLinks.map((item) => (
                <a 
                  key={item.key}
                  href={`#${item.key}`} 
-                 className="text-gray-600 hover:text-medical-primary font-medium transition-colors hover:-translate-y-0.5 inline-block"
+                 className="text-gray-600 hover:text-medical-primary font-medium text-sm lg:text-base transition-colors hover:-translate-y-0.5 inline-block"
                >
                  {item.label}
                </a>
             ))}
             
-            <a href="#portal" className="px-5 py-2.5 rounded-full bg-medical-50 text-medical-primary font-bold hover:bg-medical-primary hover:text-white transition-all hover:shadow-md hover:-translate-y-0.5 border border-medical-primary whitespace-nowrap">
+            <a href="#portal" className="px-4 py-2 rounded-full bg-medical-50 text-medical-primary text-sm font-bold hover:bg-medical-primary hover:text-white transition-all hover:shadow-md hover:-translate-y-0.5 border border-medical-primary whitespace-nowrap">
               {text.nav.results}
             </a>
             
@@ -104,7 +103,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
                 className="flex items-center gap-2 text-gray-700 hover:text-medical-primary font-semibold border border-gray-200 px-3 py-2 rounded-xl transition-all hover:shadow-sm"
               >
                 <Globe size={18} />
-                <span>{currentLang.code}</span>
+                <span className="text-sm">{currentLang.code}</span>
                 <ChevronDown size={14} className={`transition-transform duration-200 ${isDesktopLangOpen ? 'rotate-180' : ''}`} />
               </button>
               
@@ -132,7 +131,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
           </div>
 
           {/* Mobile Actions */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="md:hidden flex items-center gap-2">
              
              {/* Mobile Language Dropdown (ID: lang-switch-mobile) */}
              <div className="relative" ref={mobileLangRef} id="lang-switch-mobile">
@@ -141,9 +140,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
                  className="flex items-center gap-1.5 p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
                  aria-label="Select Language"
                >
-                 <Globe size={20} />
-                 <span className="text-sm font-bold">{currentLang.code}</span>
-                 <ChevronDown size={14} className={`transition-transform duration-200 ${isMobileLangOpen ? 'rotate-180' : ''}`} />
+                 <Globe size={18} />
+                 <span className="text-xs font-bold">{currentLang.code}</span>
+                 <ChevronDown size={12} className={`transition-transform duration-200 ${isMobileLangOpen ? 'rotate-180' : ''}`} />
                </button>
 
                 {isMobileLangOpen && (
@@ -166,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
              </div>
 
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition-colors" aria-label="Menu">
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>

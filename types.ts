@@ -48,11 +48,11 @@ export interface ContentStrings {
   };
   testimonials: {
     title: string;
-    reviews: Array<{
-      text: string;
+    reviews: {
       name: string;
+      text: string;
       stars: number;
-    }>;
+    }[];
   };
   portal: {
     title: string;

@@ -48,11 +48,11 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       }
     },
     testimonials: {
-      title: "Ce que disent nos patients",
+      title: "Témoignages",
       reviews: [
-        { name: "Ahmed B.", text: "Service très professionnel et rapide. J'ai reçu mes résultats par email le jour même.", stars: 5 },
-        { name: "Fatima Z.", text: "Personnel accueillant et rassurant, surtout pour les prélèvements sanguins des enfants.", stars: 5 },
-        { name: "Karim M.", text: "Laboratoire propre et moderne. Je recommande vivement pour la fiabilité des résultats.", stars: 5 },
+        { name: "S. K.", text: "Service rapide et professionnel.", stars: 5 },
+        { name: "M. A.", text: "Très bon accueil, je recommande.", stars: 5 },
+        { name: "L. B.", text: "Résultats disponibles rapidement en ligne.", stars: 4 },
       ]
     },
     portal: {
@@ -117,11 +117,11 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       }
     },
     testimonials: {
-      title: "آراء مرضانا",
+      title: "آراء المرضى",
       reviews: [
-        { name: "أحمد ب.", text: "خدمة احترافية وسريعة للغاية. تلقيت نتائجي عبر البريد الإلكتروني في نفس اليوم.", stars: 5 },
-        { name: "فاطمة ز.", text: "طاقم عمل مرحب ومطمئن، خاصة لسحب الدم للأطفال.", stars: 5 },
-        { name: "كريم م.", text: "مختبر نظيف وحديث. أوصي به بشدة لدقة النتائج.", stars: 5 },
+        { name: "س. ك.", text: "خدمة سريعة ومهنية.", stars: 5 },
+        { name: "م. أ.", text: "استقبال جيد جدا، أنصح به.", stars: 5 },
+        { name: "ل. ب.", text: "النتائج متوفرة بسرعة عبر الإنترنت.", stars: 4 },
       ]
     },
     portal: {
@@ -186,11 +186,11 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       }
     },
     testimonials: {
-      title: "What Our Patients Say",
+      title: "Testimonials",
       reviews: [
-        { name: "Ahmed B.", text: "Very professional and fast service. I received my results by email the same day.", stars: 5 },
-        { name: "Fatima Z.", text: "Welcoming and reassuring staff, especially for children's blood tests.", stars: 5 },
-        { name: "Karim M.", text: "Clean and modern laboratory. I highly recommend for the reliability of results.", stars: 5 },
+        { name: "S. K.", text: "Fast and professional service.", stars: 5 },
+        { name: "M. A.", text: "Very good welcome, I recommend.", stars: 5 },
+        { name: "L. B.", text: "Results available quickly online.", stars: 4 },
       ]
     },
     portal: {

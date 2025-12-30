@@ -4,6 +4,7 @@ export interface ContentStrings {
   topBar: {
     urgency: string;
     phone: string;
+    location: string;
   };
   nav: {
     home: string;
@@ -40,7 +41,7 @@ export interface ContentStrings {
       title: string;
       desc: string;
     };
-    corporate: {
+    fertility: {
       title: string;
       desc: string;
     };

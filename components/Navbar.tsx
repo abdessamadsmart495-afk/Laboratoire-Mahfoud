@@ -16,16 +16,24 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
-          {/* Logo Section */}
+          {/* Logo Section - Image Based */}
           <div className="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 bg-medical-primary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg transform transition-transform duration-300 group-hover:rotate-6">
-              M
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-gray-900 leading-tight">
+            {/* USER: Please right-click the logo on the old site, copy image address, and paste it here if this link breaks */}
+            <img 
+              src="https://www.laboratoiremahfoud.com/img/logo.png" 
+              alt="Laboratoire Mahfoud Logo" 
+              className="h-12 w-auto object-contain"
+              onError={(e) => {
+                // Fallback if image fails
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.parentElement?.classList.add('fallback-logo');
+              }}
+            />
+            <div className="hidden sm:flex flex-col">
+              <span className="text-xl font-bold text-medical-secondary leading-tight">
                 Laboratoire Mahfoud
               </span>
-              <span className="text-xs text-emerald-600 font-medium flex items-center gap-1">
+              <span className="text-xs text-medical-primary font-medium flex items-center gap-1">
                 <Award size={12} /> NM ISO 15189:2023
               </span>
             </div>
@@ -43,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
                </a>
             ))}
             
-            <a href="#portal" className="px-5 py-2.5 rounded-full bg-medical-50 text-medical-700 font-bold hover:bg-medical-100 transition-all hover:shadow-md hover:-translate-y-0.5">
+            <a href="#portal" className="px-5 py-2.5 rounded-full bg-medical-50 text-medical-primary font-bold hover:bg-medical-primary hover:text-white transition-all hover:shadow-md hover:-translate-y-0.5 border border-medical-primary">
               {text.nav.results}
             </a>
             
@@ -57,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
                   <button
                     key={l}
                     onClick={() => setLang(l)}
-                    className={`block w-full text-left rtl:text-right px-4 py-2.5 text-sm transition-colors ${lang === l ? 'bg-medical-50 text-medical-700 font-bold' : 'text-gray-700 hover:bg-gray-50'}`}
+                    className={`block w-full text-left rtl:text-right px-4 py-2.5 text-sm transition-colors ${lang === l ? 'bg-medical-50 text-medical-primary font-bold' : 'text-gray-700 hover:bg-gray-50'}`}
                   >
                     {l === 'AR' ? 'العربية' : l === 'FR' ? 'Français' : 'English'}
                   </button>
@@ -88,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, text }) => {
               {text.nav[item as keyof typeof text.nav]}
             </a>
           ))}
-          <a href="#portal" onClick={() => setIsOpen(false)} className="block px-3 py-3 rounded-xl text-base font-medium text-medical-700 bg-medical-50">
+          <a href="#portal" onClick={() => setIsOpen(false)} className="block px-3 py-3 rounded-xl text-base font-medium text-medical-primary bg-medical-50 border border-medical-100">
             {text.nav.results}
           </a>
           

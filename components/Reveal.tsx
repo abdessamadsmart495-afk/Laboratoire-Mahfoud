@@ -24,7 +24,7 @@ export const Reveal: React.FC<RevealProps> = ({
         if (ref.current) observer.unobserve(ref.current);
       }
     }, {
-      rootMargin: "-50px 0px", // Trigger when element is slightly inside viewport
+      rootMargin: "-20px 0px", // Trigger slightly earlier
       threshold: 0.1
     });
 
@@ -42,10 +42,10 @@ export const Reveal: React.FC<RevealProps> = ({
         width,
         transitionDelay: `${delay}ms`
       }}
-      className={`${className} transition-all duration-1000 ease-out transform ${
+      className={`${className} transition-all duration-700 ease-out transform ${
         isVisible 
-          ? "opacity-100 translate-y-0" 
-          : "opacity-0 translate-y-12"
+          ? "opacity-100 translate-y-0 blur-0" 
+          : "opacity-0 translate-y-6 blur-[2px]"
       }`}
     >
       {children}

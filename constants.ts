@@ -5,6 +5,7 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
     topBar: {
       urgency: "Urgencies available 24/7",
       phone: "0528 82 02 10",
+      location: "Talborjt, Agadir",
     },
     nav: {
       home: "Home",
@@ -15,10 +16,10 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       results: "My Results",
     },
     hero: {
-      title: "Precision & Trust: Your ISO 15189 Accredited Lab",
-      subtitle: "Founded in 2002 by Dr. Samir Mahfoud. Serving Talborjt and Agadir with European standards of excellence.",
-      ctaPrimary: "View Results",
-      ctaSecondary: "Home Sampling",
+      title: "Analysis & Biology in Agadir",
+      subtitle: "Precision, Trust, and Excellence since 2002. Your NM ISO 15189 accredited partner.",
+      ctaPrimary: "Patient Results",
+      ctaSecondary: "Home Sample",
       badge: "Accredited NM ISO 15189:2023",
     },
     stats: {
@@ -41,9 +42,9 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
         title: "Home Visits",
         desc: "We come to you anywhere in Agadir. Professional sampling in the comfort of your home.",
       },
-      corporate: {
-        title: "Corporate Services",
-        desc: "Check-ups and occupational medicine services tailored for companies and professionals.",
+      fertility: {
+        title: "Fertility Center",
+        desc: "Specialized Fertility and Reproduction unit (FIV/ICSI). Advanced reproductive biology services.",
       },
     },
     trust: {
@@ -69,8 +70,9 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
   },
   FR: {
     topBar: {
-      urgency: "Urgences assurées 24h/24 et 7j/7",
+      urgency: "Urgences 24h/24 et 7j/7",
       phone: "0528 82 02 10",
+      location: "Talborjt, Agadir",
     },
     nav: {
       home: "Accueil",
@@ -78,12 +80,12 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       services: "Services",
       patients: "Patients",
       contact: "Contact",
-      results: "Mes Résultats",
+      results: "Résultats",
     },
     hero: {
-      title: "Précision et Confiance : Votre Laboratoire Accrédité ISO 15189",
-      subtitle: "Fondé en 2002 par Dr. Samir Mahfoud. Au service de Talborjt et Agadir avec des standards européens.",
-      ctaPrimary: "Voir Résultats",
+      title: "Analyses & Biologie à Agadir",
+      subtitle: "Précision, Confiance et Excellence depuis 2002. Votre partenaire accrédité NM ISO 15189.",
+      ctaPrimary: "Vos Résultats",
       ctaSecondary: "Prélèvement à Domicile",
       badge: "Accrédité NM ISO 15189:2023",
     },
@@ -104,12 +106,12 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
         desc: "Prélèvement doux spécialisé pour enfants et nourrissons dans un environnement rassurant.",
       },
       home: {
-        title: "Visites à Domicile",
+        title: "Prélèvement à Domicile",
         desc: "Nous venons à vous partout à Agadir. Prélèvement professionnel dans le confort de votre foyer.",
       },
-      corporate: {
-        title: "Services Entreprises",
-        desc: "Bilans de santé et services de médecine du travail adaptés aux entreprises et professionnels.",
+      fertility: {
+        title: "Centre de Fertilité",
+        desc: "Unité spécialisée en Fertilité et Reproduction (FIV/ICSI). Biologie de la reproduction avancée.",
       },
     },
     trust: {
@@ -135,8 +137,9 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
   },
   AR: {
     topBar: {
-      urgency: "خدمة الطوارئ متاحة 24/7",
+      urgency: "خدمة الطوارئ 24/7",
       phone: "0528 82 02 10",
+      location: "تالبرجت، أكادير",
     },
     nav: {
       home: "الرئيسية",
@@ -147,9 +150,9 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       results: "نتائجي",
     },
     hero: {
-      title: "الدقة والثقة: مختبركم المعتمد ISO 15189 في أكادير",
-      subtitle: "تأسس عام 2002 من قبل د. سمير محفوظ. في خدمة تالبرجت وأكادير بمعايير أوروبية.",
-      ctaPrimary: "عرض النتائج",
+      title: "التحاليل والبيولوجيا في أكادير",
+      subtitle: "الدقة، الثقة والتميز منذ عام 2002. شريككم المعتمد NM ISO 15189.",
+      ctaPrimary: "نتائج المرضى",
       ctaSecondary: "أخذ العينات بالمنزل",
       badge: "معتمد NM ISO 15189:2023",
     },
@@ -159,7 +162,7 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
       available: "خدمة الطوارئ",
     },
     services: {
-      title: "خبراتنا",
+      title: "خدماتنا",
       subtitle: "تشخيصات طبية شاملة بأحدث التقنيات.",
       biology: {
         title: "البيولوجيا الطبية",
@@ -173,9 +176,9 @@ export const TEXT_CONTENT: Record<Language, ContentStrings> = {
         title: "زيارات منزلية",
         desc: "نصل إليكم في أي مكان في أكادير. أخذ عينات احترافي في راحة منزلكم.",
       },
-      corporate: {
-        title: "خدمات الشركات",
-        desc: "فحوصات وخدمات طب الشغل المصممة للشركات والمهنيين.",
+      fertility: {
+        title: "مركز الخصوبة",
+        desc: "وحدة متخصصة في الخصوبة والإنجاب (FIV/ICSI). خدمات بيولوجيا الإنجاب المتقدمة.",
       },
     },
     trust: {
